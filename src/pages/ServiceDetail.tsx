@@ -16,11 +16,14 @@ import {
   Clock,
   Users
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useToast } from '@/hooks/use-toast';
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
+  const { toast } = useToast();
 
   // Service data mapping
   const services = {
@@ -146,7 +149,16 @@ const ServiceDetail = () => {
     }
   };
 
-  const service = services[slug as keyof typeof services];
+  // Check if service exists
+  const service = slug ? services[slug as keyof typeof services] : null;
+
+  // Handle quote request
+  const handleQuoteRequest = () => {
+    toast({
+      title: t('services.quoteRequested') || 'Quote Requested',
+      description: t('services.quoteRequestedDesc') || "We'll contact you shortly to discuss your project needs.",
+    });
+  };
 
   // Handle invalid service slug
   if (!service) {
@@ -313,7 +325,10 @@ const ServiceDetail = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-construction-gold hover:bg-construction-gold/90 text-black">
+                <Button 
+                  className="w-full bg-construction-gold hover:bg-construction-gold/90 text-black"
+                  onClick={handleQuoteRequest}
+                >
                   {t('cta.requestQuote') || 'Request a Quote'}
                 </Button>
               </div>
@@ -337,12 +352,14 @@ const ServiceDetail = () => {
           )}>
             {t('cta.consultation') || 'Contact us today for a free consultation and quote. Our team is ready to bring your construction vision to life.'}
           </p>
-          <Button 
-            size="lg"
-            className="bg-construction-gold hover:bg-construction-gold/90 text-black font-medium"
-          >
-            {t('cta.contact')}
-          </Button>
+          <Link to="/contact">
+            <Button 
+              size="lg"
+              className="bg-construction-gold hover:bg-construction-gold/90 text-black font-medium"
+            >
+              {t('cta.contact')}
+            </Button>
+          </Link>
         </div>
       </section>
 

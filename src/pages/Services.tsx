@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
@@ -6,6 +7,7 @@ import ServiceCard from '@/components/ServiceCard';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Building2, WrenchIcon, PaintRoller, HardHat, Construction, Wrench, TrendingUp, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const { t, language, dir } = useLanguage();
@@ -48,7 +50,7 @@ const Services = () => {
       description: t('services.additional.architecture.desc') || 'Professional architectural design services tailored to your specific needs and preferences.',
     },
     {
-      icon: Wrench, // Changed from Tools to Wrench
+      icon: Wrench, 
       title: t('services.additional.maintenance') || 'Maintenance & Repair',
       description: t('services.additional.maintenance.desc') || 'Comprehensive maintenance and repair services to keep your property in optimal condition.',
     },
@@ -172,12 +174,14 @@ const Services = () => {
           )}>
             {t('cta.consultation') || 'Contact us today for a free consultation and quote. Our team is ready to bring your construction vision to life.'}
           </p>
-          <Button 
-            size="lg"
-            className="bg-construction-gold hover:bg-construction-gold/90 text-black font-medium"
-          >
-            {t('cta.contact')}
-          </Button>
+          <Link to="/contact">
+            <Button 
+              size="lg"
+              className="bg-construction-gold hover:bg-construction-gold/90 text-black font-medium"
+            >
+              {t('cta.contact')}
+            </Button>
+          </Link>
         </div>
       </section>
 
