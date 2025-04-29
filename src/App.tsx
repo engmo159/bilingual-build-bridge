@@ -10,6 +10,10 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
+import ResidentialService from "./pages/ResidentialService";
+import CommercialService from "./pages/CommercialService";
+import IndustrialService from "./pages/IndustrialService";
+import RenovationService from "./pages/RenovationService";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -29,6 +33,10 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/services/residential" element={<ResidentialService />} />
+              <Route path="/services/commercial" element={<CommercialService />} />
+              <Route path="/services/industrial" element={<IndustrialService />} />
+              <Route path="/services/renovation" element={<RenovationService />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
