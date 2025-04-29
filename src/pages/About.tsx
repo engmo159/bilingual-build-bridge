@@ -117,7 +117,7 @@ const About = () => {
                 "text-muted-foreground",
                 language === 'en' ? 'font-inter' : 'font-cairo'
               )}>
-                {t('about.mission.content') || 'To deliver exceptional construction services that transform our clients' visions into reality, while maintaining the highest standards of quality, safety, and sustainability.'}
+                {t('about.mission.content') || "To deliver exceptional construction services that transform our clients' visions into reality, while maintaining the highest standards of quality, safety, and sustainability."}
               </p>
             </div>
             <div className="bg-card p-8 rounded-lg shadow-sm">
