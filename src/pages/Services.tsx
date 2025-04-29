@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Building2, WrenchIcon, PaintRoller, HardHat, Construction, Tools, TrendingUp, Clock } from 'lucide-react';
+import { Building2, WrenchIcon, PaintRoller, HardHat, Construction, Wrench, TrendingUp, Clock } from 'lucide-react';
 
 const Services = () => {
   const { t, language, dir } = useLanguage();
@@ -45,7 +45,7 @@ const Services = () => {
       description: t('services.additional.architecture.desc') || 'Professional architectural design services tailored to your specific needs and preferences.',
     },
     {
-      icon: Tools,
+      icon: Wrench, // Changed from Tools to Wrench
       title: t('services.additional.maintenance') || 'Maintenance & Repair',
       description: t('services.additional.maintenance.desc') || 'Comprehensive maintenance and repair services to keep your property in optimal condition.',
     },
