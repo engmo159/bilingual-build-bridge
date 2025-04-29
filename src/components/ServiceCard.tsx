@@ -4,15 +4,17 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
   title: string;
   description: string;
   icon: LucideIcon;
   imageUrl?: string;
+  slug?: string;
 }
 
-const ServiceCard = ({ title, description, icon: Icon, imageUrl }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, icon: Icon, imageUrl, slug }: ServiceCardProps) => {
   const { t, language } = useLanguage();
   
   return (
@@ -42,12 +44,14 @@ const ServiceCard = ({ title, description, icon: Icon, imageUrl }: ServiceCardPr
         )}>
           {description}
         </p>
-        <Button
-          variant="outline"
-          className="border-construction-gold text-construction-gold hover:bg-construction-gold hover:text-white"
-        >
-          {t('cta.learn')}
-        </Button>
+        <Link to={slug ? `/services/${slug}` : '#'}>
+          <Button
+            variant="outline"
+            className="border-construction-gold text-construction-gold hover:bg-construction-gold hover:text-white"
+          >
+            {t('cta.learn')}
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
@@ -17,24 +16,28 @@ const Services = () => {
       title: t('services.residential'),
       description: t('services.residential.desc'),
       imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      slug: 'residential'
     },
     {
       icon: WrenchIcon,
       title: t('services.commercial'),
       description: t('services.commercial.desc'),
       imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      slug: 'commercial'
     },
     {
       icon: PaintRoller,
       title: t('services.industrial'),
       description: t('services.industrial.desc'),
       imageUrl: 'https://images.unsplash.com/photo-1581094794329-c8112a89894f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      slug: 'industrial'
     },
     {
       icon: HardHat,
       title: t('services.renovation'),
       description: t('services.renovation.desc'),
       imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      slug: 'renovation'
     },
   ];
 
@@ -116,6 +119,7 @@ const Services = () => {
                 title={service.title}
                 description={service.description}
                 imageUrl={service.imageUrl}
+                slug={service.slug}
               />
             ))}
           </div>
